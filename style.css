@@ -23,7 +23,7 @@
 .mainbody {
     width: 100%;
     height: 800px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.754);
     background-image: url(spabg.jpg);
     background-size: contain;
     background-position: cover;
@@ -33,6 +33,21 @@
     justify-content: center;
     align-items: center;
     gap: 40px;
+}
+
+.bodyContacto {
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url(spabg.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: none !important;
+    background-blend-mode: overlay;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .imagenesContainer {
@@ -109,8 +124,8 @@
 
 .navbar, 
 .navbar.bg-body-tertiary {
-    background-color: transparent !important;
-    position: fixed;
+    background-color: rgb(0, 0, 0) !important;
+    backdrop-filter: blur(5px);
     width: 100%;
     z-index: 1000;
     backdrop-filter: blur(0px);
@@ -120,7 +135,7 @@
 
 .navbar.scrolled {
     background-color: rgba(0, 0, 0, 0.6) !important;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(5px);
 }
 
@@ -154,12 +169,21 @@
 .descripcionSPA {
     color: white;
     position: absolute;
-    top: 550px;
+    top: 600px;
     text-align: center;
+}
+.descripcionContacto {
+    color: white;
+    position: absolute;
+    top: 450px;
+    text-align: center;  
+    font-size: 18px;
 }
 
 .formularioContacto {
     width: 100%;
+    position: relative;
+    top: 10px;
     height: 300px;
     display: flex;
     justify-content: center;
@@ -172,6 +196,8 @@
 .form-select {
     color: white !important;
 }
+
+
 
 /* Para el texto dentro del select */
 .form-select {
@@ -189,10 +215,13 @@
 .form-control::placeholder {
     color: rgba(0, 0, 0, 0.7) !important;
 }
+.form-control {
+    width: 370px !important;
+}
 .col-12 {
     display: flex !important;
     width: 100% !important;
-    justify-content: center !important;
+    justify-content: CENTER !important;
 }
 
 .btn {
