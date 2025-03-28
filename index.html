@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <title>SPA</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Spa Edna Moda</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto_formulario">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Servicios</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="mainbody">
+      <h2 class="titulo_spa">SERVICIOS</h2>
+      <div class="imagenesContainer">
+        <div class="imagenSpa-container">
+          <img class="imagenSpa fade-in-left
+          " src="spa1.jpg" alt="spaimagen" />
+          <div class="texto-hover">SAUNA</div>
+        </div>
+        <div class="imagenSpa-container">
+          <img class="imagenSpa" src="spa2.jpg" alt="spaimagen" />
+          <div class="texto-hover">MASAJES</div>
+        </div>
+      </div>
+      <p class="descripcionSPA">
+        En SPA Edna Moda, transformamos cada visita en una experiencia de
+        renovación total. <br />
+        Nuestro espacio ha sido diseñado para brindarte armonía, descanso y
+        equilibrio, combinando técnicas ancestrales con la última innovación en
+        terapias de relajación.
+      </p>
+    </div>
+    <div class="formularioContacto" id="contacto_formulario">
+      <form class="row g-3">
+        <div class="col-md-4">
+          <label for="validationDefault01" class="form-label"
+            >Primer Nombre</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="validationDefault01"
+            value="Mark"
+            required
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefault02" class="form-label">Apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            id="validationDefault02"
+            value="Otto"
+            required
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefaultUsername" class="form-label"
+            >Nombre de Usuario</label
+          >
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+            <input
+              type="text"
+              class="form-control"
+              id="validationDefaultUsername"
+              aria-describedby="inputGroupPrepend2"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationDefault03" class="form-label">Ciudad</label>
+          <input
+            type="text"
+            class="form-control"
+            id="validationDefault03"
+            required
+          />
+        </div>
+        <div class="col-md-3">
+          <label for="validationDefault04" class="form-label">Estado</label>
+          <select class="form-select" id="validationDefault04" required>
+            <option selected value="Soltero">Soltero/a</option>
+            <option>Casado/a</option>
+            <option>Viudo/a</option>
+            <option>Concubinato</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="validationDefault05" class="form-label">Zip</label>
+          <input
+            type="text"
+            class="form-control"
+            id="validationDefault05"
+            required
+          />
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="invalidCheck2"
+              required
+            />
+            <label class="form-check-label" for="invalidCheck2">
+              Acepto términos y condiciones
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Subir Datos</button>
+        </div>
+      </form>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
