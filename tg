@@ -1,0 +1,66 @@
+[33mcommit d08882538595441ce1fa8341531d0a5c8c22d989[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: KuszmiDog <germankuszmirukvispo@gmail.com>
+Date:   Fri Apr 4 22:18:23 2025 -0300
+
+    Hotfix 1.1: Documentacion revisada subida
+
+[33mcommit 703c3ff24b9cd186847094d4d856f45041d97e62[m
+Author: KuszmiDog <germankuszmirukvispo@gmail.com>
+Date:   Fri Apr 4 00:07:46 2025 -0300
+
+    HOTFIX 1: actualizada la documentación con el esquema del sistema
+
+[33mcommit cb90646e75f348c809308e95d765a80883ba4fb6[m
+Author: KuszmiDog <germankuszmirukvispo@gmail.com>
+Date:   Fri Apr 4 00:00:08 2025 -0300
+
+    Se levantó la documentación terminada para el 04/04/2025
+
+[33mcommit 97ebbdbc8ff01fd37bcb34773032ae524bde4ef9[m
+Author: tiagou0 <tiagoucerp@gmail.com>
+Date:   Thu Apr 3 14:16:19 2025 -0300
+
+    Se agregó sección servicios.
+
+[33mcommit 48a53107bb0eb5ab600c67eeb6b2a01aace20d85[m
+Author: KuszmiDog <germankuszmirukvispo@gmail.com>
+Date:   Thu Apr 3 11:30:10 2025 -0300
+
+    subi el archivo word de la documentacion
+
+[33mcommit 9e4ce84b26f6aa03d5f89e8020ef4717a0052f9c[m
+Merge: 9978070 ff32ccd
+Author: tiagou0 <tiagoucerp@gmail.com>
+Date:   Fri Mar 28 17:26:27 2025 -0300
+
+    Merge branch 'main' of https://github.com/tiagou0/TPIMetodologia
+
+[33mcommit 9978070e5be92d4efd4997671f2479661165023a[m
+Author: tiagou0 <tiagoucerp@gmail.com>
+Date:   Fri Mar 28 17:26:23 2025 -0300
+
+    ContactoCambios
+
+[33mcommit ff32ccdfadfce9ea71f126a37ee2967c0618f12b[m
+Author: KuszmiDog <germankuszmirukvispo@gmail.com>
+Date:   Fri Mar 28 16:01:09 2025 -0300
+
+    Dale Pato
+
+[33mcommit 4341d112699269c1edea9a80b30f8dc88cbb7518[m
+Author: PatricioAlv <patoalvarez.97@gmail.com>
+Date:   Fri Mar 28 15:57:15 2025 -0300
+
+    Se añadio formulario de contacto
+
+[33mcommit 14a4e242a4d584c6abd6ab1ea9d38b0604e182ac[m
+Author: KuszmiDog <germankuszmirukvispo@gmail.com>
+Date:   Fri Mar 28 15:47:24 2025 -0300
+
+    Este es un commit de prueba para el repo
+
+[33mcommit 71ca390b8c4872fcd9d52597c6c0612c6d17609e[m
+Author: tiagou0 <tiagoucerp@gmail.com>
+Date:   Fri Mar 28 15:22:54 2025 -0300
+
+    PrimerCommit
