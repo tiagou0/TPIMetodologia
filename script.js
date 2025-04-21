@@ -10,5 +10,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-//Comentario de prueba para acceso
-//Comentario para Pato para que haga la PR
+

@@ -1,294 +1,317 @@
 * {
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.whatsapplogosticky {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    transition: all 0.3s ease;
+}
+
+.whatsapplogosticky img {
+    width: 60px;
+    float: right;
+    left: 30px !important;
+}
+
+.whatsapplogosticky:hover {
+    transform: scale(1.1);
 }
 
 .header {
-    width: 100%;
-    height: 80px;
-    background-color: white;
-    display: flex;
-    align-items: center; 
-    justify-content: center;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .titulo_spa {
-    color: rgb(255, 255, 255);
-    font-size: 55px;
-    position: absolute;
-    top: 60px;
+  color: rgb(255, 255, 255);
+  font-size: 55px;
+  position: absolute;
+  top: 60px;
 }
 
 .serviceBody {
-    height: 900px;
+  height: 900px;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-image: url(imagenes/bgservicio.jpg);
+  background-size: contain;
+  background-position: cover;
+  background-repeat: none !important;
+  background-blend-mode: overlay;
 }
 
 .mainbody {
-    width: 100%;
-    height: 800px;
-    background-color: rgba(0, 0, 0, 0.754);
-    background-image: url(spabg.jpg);
-    background-size: contain;
-    background-position: cover;
-    background-repeat: none !important;
-    background-blend-mode: overlay;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
+  width: 100%;
+  height: 800px;
+  background-color: rgba(0, 0, 0, 0.754);
+  background-image: url(imagenes/spabg.jpg);
+  background-size: contain;
+  background-position: cover;
+  background-repeat: none !important;
+  background-blend-mode: overlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 }
 
 .bodyContacto {
-    width: 100%;
-    height: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    background-image: url(spabg.jpg);
-    background-size: contain;
-    background-position: center;
-    background-repeat: none !important;
-    background-blend-mode: overlay;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-image: url(imagenes/spabg.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: none !important;
+  background-blend-mode: overlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .imagenesContainer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 40px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 40px;
 }
 
 .imagenSpa-container {
-    position: relative;
-    width: 500px;
+  position: relative;
+  width: 500px;
 }
 
 .imagenSpa1-container {
-    position: relative;
-    width: 400px;
+  position: relative;
+  width: 400px;
 }
 
 .imagenSpa2-container {
-    position: relative;
-    width: 400px;
+  position: relative;
+  width: 400px;
 }
 
 .imagenSpa1 {
-    width: 100%;
-    height: 250px !important;
-    position: relative;
-    top: 40px;
-    display: block;
-    border-radius: 5px;
-    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 1));
-    transition: all .4s;
+  width: 100%;
+  height: 250px !important;
+  position: relative;
+  top: 40px;
+  display: block;
+  border-radius: 5px;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 1));
+  transition: all 0.4s;
 }
 
 .imagenesContainer2 {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 260px; 
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 260px;
 }
 
 .imagenSpa2 {
-    width: 100%;
-    height: 250px !important;
-    position: relative;
-    top: 50px;
-    display: block;
-    border-radius: 5px;
-    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 1));
-    transition: all .4s;
+  width: 100%;
+  height: 250px !important;
+  position: relative;
+  top: 50px;
+  display: block;
+  border-radius: 5px;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 1));
+  transition: all 0.4s;
 }
 
-
 .imagenSpa {
-    width: 100%;
-    position: relative;
-    top: -70px;
-    display: block;
-    border-radius: 10px;
-    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 1));
-    transition: all .4s;
+  width: 100%;
+  position: relative;
+  top: -70px;
+  display: block;
+  border-radius: 10px;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 1));
+  transition: all 0.4s;
 }
 
 .imagenSpa-container:hover .imagenSpa {
-    transform: scale(1.1);
-    background-color: black;
-    opacity: .7;
+  transform: scale(1.1);
+  background-color: black;
+  opacity: 0.7;
 }
 
 .texto-hover {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-    z-index: 1;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  z-index: 1;
 }
 
 .imagenSpa-container:hover .texto-hover {
-    opacity: 1;
+  opacity: 1;
 }
 
-.imagenSpa:hover{
-    transform: scale(1.1);
-    transition: all .4s;
-    opacity: .9;
+.imagenSpa:hover {
+  transform: scale(1.1);
+  transition: all 0.4s;
+  opacity: 0.9;
 }
 
 .imagenSpa .texto-hover {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .imagenSpa:hover .texto-hover {
-    opacity: 1;
+  opacity: 1;
 }
 
-.navbar, 
+.navbar,
 .navbar.bg-body-tertiary {
-    background-color: rgb(0, 0, 0) !important;
-    backdrop-filter: blur(5px);
-    width: 100%;
-    z-index: 1000;
-    backdrop-filter: blur(0px);
-    -webkit-backdrop-filter: blur(0px);
-    transition: all .6s ease;
+  background-color: rgb(0, 0, 0) !important;
+  backdrop-filter: blur(5px);
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: all 0.6s ease;
 }
 
 .navbar.scrolled {
-    background-color: rgba(0, 0, 0, 0.6) !important;
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .navbar-nav .nav-link {
-    color: white !important;
-    font-weight: 500;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: white !important;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-nav .nav-link:hover {
-    color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .navbar-brand {
-    color: rgb(255, 255, 255) !important;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: rgb(255, 255, 255) !important;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-brand:hover {
-    color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 .descripcionSPA {
-    color: white;
-    position: absolute;
-    top: 600px;
-    text-align: center;
+  color: white;
+  position: absolute;
+  top: 600px;
+  text-align: center;
 }
 .descripcionContacto {
-    color: white;
-    position: absolute;
-    top: 450px;
-    text-align: center;  
-    font-size: 18px;
+  color: white;
+  position: absolute;
+  top: 450px;
+  text-align: center;
+  font-size: 20px;
 }
 
 .formularioContacto {
-    width: 100%;
-    position: relative;
-    top: 10px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    padding: 30px;
-    background-color: rgb(11, 11, 11);
+  width: 100%;
+  position: relative;
+  top: 0px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  background-color: rgb(11, 11, 11);
 }
 
 /* Para las etiquetas y textos del formulario */
 .form-label,
 .form-select {
-    color: white !important;
+  color: white !important;
 }
-
-
 
 /* Para el texto dentro del select */
 .form-select {
-    background-color: transparent !important;
-    border-color: rgb(255, 255, 255);
+  background-color: transparent !important;
+  border-color: rgb(255, 255, 255);
 }
 
 /* Para las opciones del select */
 .form-select option {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
 }
 
 /* Para los placeholders */
 .form-control::placeholder {
-    color: rgba(0, 0, 0, 0.7) !important;
+  color: rgba(0, 0, 0, 0.7) !important;
 }
 .form-control {
-    width: 370px !important;
+  width: 370px !important;
 }
 .col-12 {
-    display: flex !important;
-    width: 100% !important;
-    justify-content: CENTER !important;
+  display: flex !important;
+  width: 100% !important;
+  justify-content: CENTER !important;
 }
 
 .botonContainer {
-    width: 100%;
-    display: flex;
-    align-items: center; justify-content: space-around;
-    margin-top: 80px; column-gap: space-be;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 80px;
+  column-gap: space-be;
 }
-
 
 .btn {
-    background-color: rgb(70, 36, 13) !important;
-    border: none !important;
-} 
-.botonModal{
-    width: 140px !important;
-    height: 60px;
-    text-align: center !important;
-    background-color: rgb(103, 57, 27) !important;
-    border-radius: 20px !important;
+  background-color: rgb(251, 105, 8) !important;
+  border: none !important;
+}
+.botonModal {
+  width: 140px !important;
+  height: 60px;
+  text-align: center !important;
+  background-color: rgb(147, 60, 10) !important;
+  border-radius: 20px !important;
 }
 
-
 .form-check-label {
-    color: white !important;
+  color: white !important;
 }
