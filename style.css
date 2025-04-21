@@ -20,6 +20,10 @@
     top: 60px;
 }
 
+.serviceBody {
+    height: 900px;
+}
+
 .mainbody {
     width: 100%;
     height: 800px;
@@ -67,16 +71,40 @@
     width: 400px;
 }
 
+.imagenSpa2-container {
+    position: relative;
+    width: 400px;
+}
+
 .imagenSpa1 {
     width: 100%;
     height: 250px !important;
     position: relative;
     top: 40px;
     display: block;
-    border-radius: 10px;
+    border-radius: 5px;
     filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 1));
     transition: all .4s;
 }
+
+.imagenesContainer2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 260px; 
+}
+
+.imagenSpa2 {
+    width: 100%;
+    height: 250px !important;
+    position: relative;
+    top: 50px;
+    display: block;
+    border-radius: 5px;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 1));
+    transition: all .4s;
+}
+
 
 .imagenSpa {
     width: 100%;

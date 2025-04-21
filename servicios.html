@@ -12,7 +12,7 @@
     />
     <title>SPA</title>
   </head>
-  <body>
+  <body class="serviceBody">
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
@@ -200,6 +200,123 @@
                 <li>Limpieza facial profunda</li>
                 <li>Hidratación facial</li>
                 <li>Tratamiento anti-age</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Segunda Linea de Imagenes -->
+    <div class="imagenesContainer2">
+      <div class="imagenSpa2-container">
+        <img
+          class="imagenSpa2 fade-in-left"
+          src="corporaltreatment.webp"
+          alt="spaimagen"
+        />
+        <div class="texto-hover">SAUNA</div>
+      </div>
+      <div class="imagenSpa2-container">
+        <img
+          class="imagenSpa2 fade-in-left"
+          src="groupspa.jpg"
+          alt="spaimagen"
+        />
+        <div class="texto-hover">BELLEZA</div>
+      </div>
+    </div>
+    <div class="botonContainer">
+      <button
+        type="button"
+        class="btn btn-primary botonModal"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Tratamientos Corporales
+      </button>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Lista de Tratamientos Corporales
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h3>Tratamientos Corporales</h3>
+              <ul>
+                <li>VelaSlim</li>
+                <li>DermoHealth</li>
+                <li>CrioFrecuencia</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal2 -->
+      <button
+        type="button"
+        class="btn btn-primary botonModal"
+        data-bs-toggle="modal"
+        data-bs-target="#facialesModal"
+      >
+        Servicios Grupales
+      </button>
+      <div
+        class="modal fade"
+        id="facialesModal"
+        tabindex="-1"
+        aria-labelledby="facialesModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="facialesModalLabel">
+                Lista de Servicios Grupales
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h3>Servicios Grupales</h3>
+              <ul>
+                <li>Hidromasajes</li>
+                <li>Yoga</li>
               </ul>
             </div>
             <div class="modal-footer">
