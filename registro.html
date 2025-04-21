@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styleformu.css" />
+    <title>Registro de Cliente</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous"
+
+    />
+  </head>
+  <body style="background-color: #FAD7E2;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">Spa Edna Moda</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="servicios.html">Servicios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="registro.html">Contacto</a>
+              </li>
+              <li class="nav-item"><a class="nav-link active" href="cliente.html">Clientes</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="container mt-4">
+        
+        <h2>Registrar Nuevo Cliente</h2>
+        <form id="formularioCliente">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" required />
+            <div class="invalid-feedback">Por favor ingrese su nombre.</div>
+          </div>
+          <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" required />
+            <div class="invalid-feedback">Por favor ingrese su apellido.</div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo</label>
+            <input type="email" class="form-control" id="email" required />
+            <div class="invalid-feedback">Por favor, ingrese un  correo valido.</div>
+          </div>
+          <div class="mb-3">
+            <label for="contraseña" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="contraseña" required />
+            <div class="invalid-feedback">Por favor, ingrese una contraseña valida.</div>
+          </div>
+          <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="telefono" required />
+            <div class="invalid-feedback">Por favor, ingrese un telefono valido.</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+    
+        <div id="mensaje" class="mt-3"></div>
+    
+        <script>
+            document.getElementById('formularioCliente').addEventListener('submit', async (e) => {
+              e.preventDefault();
+          
+              const form = e.target;
+              const mensajeDiv = document.getElementById('mensaje');
+              mensajeDiv.innerText = '';
+              mensajeDiv.className = '';
+          
+              let valido = true;
+          
+              // Validación campo por campo
+              const campos = ['nombre', 'apellido', 'email', 'contraseña', 'telefono'];
+              campos.forEach(id => {
+                const input = document.getElementById(id);
+                input.classList.remove('is-invalid');
+                input.classList.remove('is-valid');
+          
+                // Validación personalizada para algunos campos
+                if (!input.value.trim()) {
+                  input.classList.add('is-invalid');
+                  valido = false;
+                } else if (id === 'contraseña' && input.value.length < 6) {
+                  input.classList.add('is-invalid');
+                  valido = false;
+                } else if (id === 'telefono' && !/^\d{7,15}$/.test(input.value)) {
+                  input.classList.add('is-invalid');
+                  valido = false;
+                } else {
+                  input.classList.add('is-valid');
+                }
+              });
+          
+              if (!valido) {
+                mensajeDiv.innerText = 'Por favor corrija los campos resaltados.';
+                mensajeDiv.className = 'alert alert-danger';
+                return;
+              }
+          
+              // Preparar datos para enviar
+              const cliente = {
+                nombre: document.getElementById('nombre').value.trim(),
+                apellido: document.getElementById('apellido').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                contraseña: document.getElementById('contraseña').value.trim(),
+                telefono: document.getElementById('telefono').value.trim(),
+              };
+          
+              try {
+                const res = await fetch('http://localhost:3000/registrar', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(cliente),
+                });
+          
+                const data = await res.json();
+          
+                if (!res.ok) {
+                  mensajeDiv.innerText = data.error || 'Error al registrar el cliente.';
+                  mensajeDiv.className = 'alert alert-danger';
+                } else {
+                  mensajeDiv.innerText = data.mensaje || 'Cliente registrado correctamente.';
+                  mensajeDiv.className = 'alert alert-success';
+                  form.reset();
+          
+                  // Quitar clases de validación después del envío exitoso
+                  campos.forEach(id => {
+                    const input = document.getElementById(id);
+                    input.classList.remove('is-valid');
+                  });
+                }
+              } catch (error) {
+                mensajeDiv.innerText = 'No se pudo conectar con el servidor.';
+                mensajeDiv.className = 'alert alert-danger';
+              }
+            });
+          </script>
+          
+          
+      </body>
+    </div>
+    
+</html>
