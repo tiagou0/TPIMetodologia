@@ -34,17 +34,16 @@
 }
 
 .titulo_spa {
-<<<<<<< HEAD
   color: rgb(255, 255, 255);
   font-size: 55px;
   position: absolute;
-  top: 60px;
+  top: 110px;
 }
 
 .serviceBody {
   height: 900px;
   background-color: rgba(0, 0, 0, 0.7);
-  background-image: url(imagenes/bgservicio.jpg);
+  background-image: url(imagenes/spabg.jpg) !important;
   background-size: contain;
   background-position: cover;
   background-repeat: none !important;
@@ -55,7 +54,7 @@
   width: 100%;
   height: 800px;
   background-color: rgba(0, 0, 0, 0.754);
-  background-image: url(imagenes/spabg.jpg);
+  background-image: url(imagenes/spabg.jpg) !important;
   background-size: contain;
   background-position: cover;
   background-repeat: none !important;
@@ -79,7 +78,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-=======
     color: rgb(255, 255, 255);
     font-size: 55px;
     position: absolute;
@@ -125,7 +123,6 @@
     background-repeat: no-repeat;  /* Evita repeticiones */
     min-height: 100vh;   
     
->>>>>>> d42168cd30b59d13927ebaa41df36ec58623f766
 }
 
 .imagenesContainer {
@@ -241,15 +238,6 @@
 
 .navbar,
 .navbar.bg-body-tertiary {
-<<<<<<< HEAD
-  background-color: rgb(0, 0, 0) !important;
-  backdrop-filter: blur(5px);
-  width: 100%;
-  z-index: 1000;
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  transition: all 0.6s ease;
-=======
     background-color: rgb(205, 175, 250) !important;
     backdrop-filter: blur(5px);
     width: 100%;
@@ -257,7 +245,6 @@
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
     transition: all .6s ease;
->>>>>>> d42168cd30b59d13927ebaa41df36ec58623f766
 }
 
 .navbar::after {
@@ -279,16 +266,10 @@
 }
 
 .navbar-nav .nav-link {
-<<<<<<< HEAD
-  color: white !important;
-  font-weight: 500;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-=======
     color: white !important;
     font-weight: 500;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     font-size: 20px;
->>>>>>> d42168cd30b59d13927ebaa41df36ec58623f766
 }
 
 .navbar-nav .nav-link:hover {
@@ -304,21 +285,6 @@
 }
 
 .navbar-brand {
-<<<<<<< HEAD
-  color: rgb(255, 255, 255) !important;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.navbar-brand:hover {
-  color: rgba(255, 255, 255, 0.8) !important;
-}
-.descripcionSPA {
-  color: white;
-  position: absolute;
-  top: 600px;
-  text-align: center;
-=======
     color: rgb(255, 255, 255) !important;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -338,7 +304,6 @@
     color: rgb(255, 255, 255) !important;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
->>>>>>> d42168cd30b59d13927ebaa41df36ec58623f766
 }
 .descripcionContacto {
   color: white;
@@ -391,33 +356,13 @@
 }
 
 .botonContainer {
-<<<<<<< HEAD
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 80px;
-  column-gap: space-be;
-=======
     width: 90%;
     display: flex;
     align-items: center; justify-content: space-around;
     margin-top: 80px; column-gap: space-be;
->>>>>>> d42168cd30b59d13927ebaa41df36ec58623f766
 }
 
 .btn {
-<<<<<<< HEAD
-  background-color: rgb(251, 105, 8) !important;
-  border: none !important;
-}
-.botonModal {
-  width: 140px !important;
-  height: 60px;
-  text-align: center !important;
-  background-color: rgb(147, 60, 10) !important;
-  border-radius: 20px !important;
-=======
     background-color: #784fb6 !important;
     border: none !important;
 } 
@@ -453,14 +398,9 @@
   color: white;
   font-weight: bold;
   cursor: pointer;
->>>>>>> d42168cd30b59d13927ebaa41df36ec58623f766
 }
 
 .form-check-label {
-<<<<<<< HEAD
-  color: white !important;
-}
-=======
     color: white !important;
 }
 
@@ -478,4 +418,3 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
     z-index: 1;
 }
->>>>>>> d42168cd30b59d13927ebaa41df36ec58623f766
