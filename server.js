@@ -10,7 +10,7 @@ app.use(express.json());
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '-', //modificar
+    password: 'gervispo33', //modificar
     database: 'sistema_turnos', 
     port: 3306
 });
@@ -35,11 +35,10 @@ connection.connect((err) => {
 });
 
 
-app.get('/clientes', (req, res) => {
+app.get('/clientes', (req, res) => { //arreglao'
     const query = `
-      SELECT cliente.cliente_id, nombre, apellido, email, telefono
+      SELECT cliente.cliente_id, nombre, apellido, email
       FROM cliente
-      LEFT JOIN telefono ON cliente.cliente_id = telefono.cliente_id
       ORDER BY cliente.cliente_id
     `;
     pool.query(query, (err, results) => {
