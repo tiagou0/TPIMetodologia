@@ -6,10 +6,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const pool = mysql.createPool({
+//db config
+const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'gervispo33',
+    password: 'Diariosecreto1', //modificar
+    database: 'TurnosDB', 
+    port: 3306
+});
+
+const pool = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Diariosecreto1',
     database: 'TurnosDB',
     port: 3306,
     waitForConnections: true,
