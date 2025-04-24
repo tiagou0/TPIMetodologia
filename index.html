@@ -5,8 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spa Serenidad</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .blur-background {
+      filter: blur(5px);
+      transition: filter 0.3s ease;
+    }
+
+    .modal-turno {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      z-index: 1050;
+      width: 90%;
+      max-width: 600px;
+      display: none;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1040;
+      display: none;
+    }
+  </style>
 </head>
 <body>
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
   <!-- NavBar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
@@ -18,14 +53,14 @@
   </nav>
 
   <!-- Presentación -->
-  <div class="container mt-5 text-center">
+  <div class="container mt-5 text-center" id="contenidoPrincipal">
     <h1 class="mb-4">Bienvenido a Spa Serenidad</h1>
     <p class="lead">Relájate, renueva tu energía y encuentra tu equilibrio interior en nuestro oasis de paz.</p>
     <button id="btnSolicitar" class="btn btn-success btn-lg mt-4">Solicitar un turno</button>
   </div>
 
-  <!-- Formulario de turno -->
-  <div class="container mt-5" id="formularioTurno" style="display: none;">
+  <!-- Formulario flotante -->
+  <div class="modal-turno" id="formularioTurno">
     <h3>Reserva tu turno</h3>
     <form id="turnoForm">
       <div class="mb-3">
@@ -48,38 +83,65 @@
         <label for="servicio" class="form-label">Servicio seleccionado</label>
         <select class="form-select" id="servicio" required>
           <option value="">Selecciona un servicio</option>
-          <option value="Masaje relajante">Masaje relajante</option>
-          <option value="Facial rejuvenecedor">Facial rejuvenecedor</option>
-          <option value="Terapia con piedras calientes">Terapia con piedras calientes</option>
-          <option value="Exfoliación corporal">Exfoliación corporal</option>
+          <option value="Masaje Anti-Estres">Masaje Anti-Estres</option>
+          <option value="Masaje Descontracturante">Masaje Descontracturante</option>
+          <option value="Masaje con piedras calientes">Masaje con piedras calientes</option>
+          <option value="Masaje Circulatorio">Masaje Circulatorio</option>
+
+          <option value="Masaje Circulatorio">Lifting de pestañas</option>
+          <option value="Masaje Circulatorio">Depilacion facial</option>
+          <option value="Masaje Circulatorio">Belleza de manos y pies</option>
+
+          <option value="Masaje Circulatorio">Punta de Diamante</option>
+          <option value="Masaje Circulatorio">Limpieza Profunda + Hidratacion</option>
+          <option value="Masaje Circulatorio">Crio frecuencia facial</option>
+
+          <option value="Masaje Circulatorio">VelaSlim</option>
+          <option value="Masaje Circulatorio">Dermohealth</option>
+          <option value="Masaje Circulatorio">Criofrecuencia</option>
+
+          <option value="Masaje Circulatorio">Hidromasaje</option>
+          <option value="Masaje Circulatorio">Yoga</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary">Confirmar Turno</button>
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">Confirmar Turno</button>
+        <button type="button" class="btn btn-secondary" id="btnCancelar">Cancelar</button>
+      </div>
     </form>
   </div>
 
   <script>
-    // Mostrar formulario al presionar botón
-    document.getElementById("btnSolicitar").addEventListener("click", () => {
-      document.getElementById("formularioTurno").style.display = "block";
-      document.getElementById("btnSolicitar").style.display = "none";
+    const btnSolicitar = document.getElementById("btnSolicitar");
+    const formularioTurno = document.getElementById("formularioTurno");
+    const contenidoPrincipal = document.getElementById("contenidoPrincipal");
+    const overlay = document.getElementById("overlay");
+    const btnCancelar = document.getElementById("btnCancelar");
+
+    btnSolicitar.addEventListener("click", () => {
+      formularioTurno.style.display = "block";
+      overlay.style.display = "block";
+      contenidoPrincipal.classList.add("blur-background");
     });
 
-    // Calcular hora de fin automáticamente (suponemos duración 1 hora)
+    btnCancelar.addEventListener("click", () => {
+      formularioTurno.style.display = "none";
+      overlay.style.display = "none";
+      contenidoPrincipal.classList.remove("blur-background");
+    });
+
     document.getElementById("horaInicio").addEventListener("input", function () {
       const horaInicio = this.value;
       if (horaInicio) {
-        const [h, m] = horaInicio.split(":").map(Number);
+        const [h, m] = horaInicio.split(":".map(Number));
         const horaFin = new Date();
         horaFin.setHours(h);
-        horaFin.setMinutes(m + 60); // suma 1 hora
-
+        horaFin.setMinutes(m + 60);
         const finStr = horaFin.toTimeString().substring(0, 5);
         document.getElementById("horaFin").value = finStr;
       }
     });
 
-    // Procesar formulario y enviar al backend
     document.getElementById("turnoForm").addEventListener("submit", async function (e) {
       e.preventDefault();
 
@@ -107,15 +169,16 @@
         } else {
           alert("Error: " + data.error);
         }
-
       } catch (error) {
         console.error("Error al enviar el turno:", error);
         alert("No se pudo conectar con el servidor.");
       }
 
-      // Resetear formulario
       this.reset();
       document.getElementById("horaFin").value = "";
+      formularioTurno.style.display = "none";
+      overlay.style.display = "none";
+      contenidoPrincipal.classList.remove("blur-background");
     });
   </script>
 
