@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración - Spa Serenidad</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Spa Serenidad - Administrador</a>
+      <div class="d-flex">
+        <a class="btn btn-light" href="index.html">Volver al inicio</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h2 class="mb-4">Gestión de Turnos</h2>
+    <table class="table table-striped" id="tablaTurnos">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Fecha</th>
+          <th>Inicio</th>
+          <th>Fin</th>
+          <th>Servicio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filas de turnos se agregarán dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    async function cargarTurnos() {
+      try {
+        const response = await fetch("http://localhost:3000/api/turnos");
+        const turnos = await response.json();
+
+        const tbody = document.querySelector("#tablaTurnos tbody");
+        tbody.innerHTML = "";
+
+        turnos.forEach(turno => {
+          const fila = document.createElement("tr");
+          fila.innerHTML = `
+            <td>${turno.NombreCompletoCliente}</td>
+            <td>${turno.fecha}</td>
+            <td>${turno.HoraInicio}</td>
+            <td>${turno.HoraFin}</td>
+            <td>${turno.ServicioSeleccionado}</td>
+            <td>
+              <button class="btn btn-warning btn-sm me-2" onclick="editarTurno(${turno.TurnoID})">Editar</button>
+              <button class="btn btn-danger btn-sm" onclick="eliminarTurno(${turno.TurnoID})">Eliminar</button>
+            </td>
+          `;
+          tbody.appendChild(fila);
+        });
+      } catch (error) {
+        console.error("Error al cargar turnos:", error);
+      }
+    }
+
+    async function eliminarTurno(id) {
+      if (confirm("¿Seguro que deseas eliminar este turno?")) {
+        try {
+          const response = await fetch(`http://localhost:3000/api/turnos/${id}`, {
+            method: "DELETE"
+          });
+
+          if (response.ok) {
+            alert("Turno eliminado correctamente");
+            cargarTurnos();
+          } else {
+            alert("Error al eliminar el turno");
+          }
+        } catch (error) {
+          console.error("Error al eliminar el turno:", error);
+        }
+      }
+    }
+
+    function editarTurno(id) {
+      const nuevaFecha = prompt("Introduce la nueva fecha (YYYY-MM-DD):");
+      if (!nuevaFecha) return;
+
+      fetch(`http://localhost:3000/api/turnos/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ nuevaFecha })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.mensaje) {
+            alert("Fecha modificada correctamente");
+            cargarTurnos();
+          } else {
+            alert("Error al modificar la fecha");
+          }
+        })
+        .catch(error => {
+          console.error("Error al modificar fecha:", error);
+        });
+    }
+
+    window.onload = cargarTurnos;
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

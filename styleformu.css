@@ -55,3 +55,12 @@
     background: linear-gradient(to bottom, rgba(205, 175, 250), rgba(233, 210, 248, 0.8));
     z-index: -1;
 }
+
+.serviceBody {
+    height: 900px;
+    background-color: rgba(205, 175, 250, 0.7);
+    background-size: contain;
+    background-position: cover;
+    background-repeat: none !important;
+    background-blend-mode: overlay;
+  }

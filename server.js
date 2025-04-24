@@ -6,107 +6,76 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//db config
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'gervispo33', //modificar
-    database: 'sistema_turnos', 
-    port: 3306
-});
-
-const pool = mysql.createConnection({
+const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'gervispo33',
-    database: 'sistema_turnos',
+    database: 'TurnosDB',
     port: 3306,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
 });
 
-connection.connect((err) => {
-    if(err){
-        console.error("Error conectando a la bd: ", err);
+pool.getConnection((err, connection) => {
+    if (err) {
+        console.error("Error conectando a la BD:", err);
         return;
     }
-    console.log("Coneccion exitosa a la BD!")
+    console.log("¡Conexión exitosa a la BD!");
+    connection.release();
 });
 
-
-app.get('/clientes', (req, res) => { //arreglao'
-    const query = `
-      SELECT cliente.cliente_id, nombre, apellido, email
-      FROM cliente
-      ORDER BY cliente.cliente_id
-    `;
-    pool.query(query, (err, results) => {
-      if (err) {
-        console.error('Error al consultar clientes:', err);
-        res.status(500).json({ error: 'Error al obtener datos de clientes' });
-      } else {
-        res.json(results);
-      }
-    });
-  });
-
-
-  app.post('/registrar', (req, res) => {
-    const { nombre, apellido, email, contraseña, telefono } = req.body;
-  
-    if (!nombre || !apellido || !email || !contraseña || !telefono) {
-      return res.status(400).json({ error: 'Todos los campos son obligatorios' });
-    }
-  
-    const queryCliente = 'INSERT INTO cliente (nombre, apellido, email, contraseña) VALUES (?, ?, ?, ?)';
-    const queryTelefono = 'INSERT INTO telefono (cliente_id, telefono) VALUES (?, ?)';
-  
-    pool.getConnection((err, connection) => {
-      if (err) return res.status(500).json({ error: 'Error de conexión a la base de datos' });
-  
-      connection.beginTransaction((err) => {
+// Crear turno
+app.post('/api/turnos', (req, res) => {
+    const { nombre, fecha, horaInicio, horaFin, servicio } = req.body;
+    const sql = 'INSERT INTO Turno (NombreCompletoCliente, fecha, HoraInicio, HoraFin, ServicioSeleccionado) VALUES (?, ?, ?, ?, ?)';
+    pool.query(sql, [nombre, fecha, horaInicio, horaFin, servicio], (err, result) => {
         if (err) {
-          connection.release();
-          return res.status(500).json({ error: 'Error al iniciar la transacción' });
+            console.error(err);
+            return res.status(500).json({ error: 'Error al guardar el turno' });
         }
-  
-        connection.query(queryCliente, [nombre, apellido, email, contraseña], (err, result) => {
-          if (err) {
-            connection.rollback(() => connection.release());
-            return res.status(500).json({ error: 'Error al registrar cliente' });
-          }
-  
-          const clienteId = result.insertId;
-  
-          connection.query(queryTelefono, [clienteId, telefono], (err) => {
-            if (err) {
-              connection.rollback(() => connection.release());
-              return res.status(500).json({ error: 'Error al registrar teléfono' });
-            }
-  
-            connection.commit((err) => {
-              if (err) {
-                connection.rollback(() => connection.release());
-                return res.status(500).json({ error: 'Error al confirmar transacción' });
-              }
-  
-              connection.release();
-              res.json({ mensaje: 'Cliente registrado correctamente' });
-            });
-          });
-        });
-      });
+        res.status(201).json({ mensaje: 'Turno reservado con éxito' });
     });
-  });
-  
+});
 
-  
-  
-  
-  // Arrancar el servidor
-  const PORT = 3000;
-  app.listen(PORT, () => {
-    console.log(`Servidor Node.js escuchando en http://localhost:${PORT}`);
-  });
+// Obtener todos los turnos
+app.get('/api/turnos', (req, res) => {
+    pool.query('SELECT * FROM Turno', (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Error al obtener los turnos' });
+        }
+        res.json(results);
+    });
+});
 
+// Eliminar un turno
+app.delete('/api/turnos/:id', (req, res) => {
+    const { id } = req.params;
+    pool.query('DELETE FROM Turno WHERE TurnoID = ?', [id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Error al eliminar el turno' });
+        }
+        res.json({ mensaje: 'Turno eliminado correctamente' });
+    });
+});
+
+// Editar fecha de un turno
+app.put('/api/turnos/:id', (req, res) => {
+    const { id } = req.params;
+    const { nuevaFecha } = req.body;
+    pool.query('UPDATE Turno SET fecha = ? WHERE TurnoID = ?', [nuevaFecha, id], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Error al modificar el turno' });
+        }
+        res.json({ mensaje: 'Fecha del turno modificada correctamente' });
+    });
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
