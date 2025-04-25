@@ -1,0 +1,213 @@
+.blur-background {
+    filter: blur(5px);
+    transition: filter 0.4s ease;
+  }
+  
+  .modal-turno {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1050;
+    width: 90%;
+    max-width: 600px;
+    display: none;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    display: none;
+  }
+  
+  .navbar {
+    background-color: #b095d8 !important;
+  }
+  
+  .navbar-brand {
+    color: white !important;
+    float: right !important;
+  }
+  
+  .bodycontainerlogin {
+    background-color: #fff2f6;
+  }
+  
+  .container {
+    background-color: rgba(0, 0, 0, 0.123) !important;
+    height: 500px;
+    width: 600px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 40px;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+    position: relative;
+    top: -20px !important;
+  }
+  
+  .card {
+    z-index: 200 !important;
+    width: 300px !important;
+    text-align: center;
+    background: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.561);
+  }
+  .card-header {
+    background-color: #cdaffa !important;
+  }
+  
+  .form-control {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  .btn {
+    background-color: #784cba !important;
+    border: #b095d8 !important;
+  }
+  .btn:hover {
+    background-color: #6b3bb2 !important;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+  
+  .main-container {
+    background-image: url(imagenes/spafondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.485);
+    width: 100%;
+    min-height: 100vh; /* Cambiado para ocupar toda la pantalla */
+    background-blend-mode: overlay;
+  }
+  
+  .coso {
+    display: flex;
+    gap: 20px;
+    position: relative;
+  }
+  
+  .cosoimg{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .home-icon, .spa-icon {
+    width: 35px;
+    object-fit: contain;  
+    background-color: #cdaffa;
+    border-radius: 10px;
+    padding: 5px;
+    transition: all .4s ease;
+    cursor: pointer;
+  }
+  
+  .home-icon:hover, .spa-icon:hover {
+    background-color: #65547f;
+    transform: scale(1.05);
+  }
+  
+  .spa-icon-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .spa-icon-container::after {
+    content: "Servicios";
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(175, 101, 162, 0.833);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .spa-icon-container:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  
+  .imagenesContainer {
+    background-color: #b095da;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  
+  }
+  
+  .imagen-container {
+    position: relative;
+    width: 350px;
+    height: 220px;
+    overflow: hidden;
+  }
+  
+  .imagen-container img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid white;
+    border-radius: 20px;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+    transition: all 0.5s ease;
+  }
+  
+  .imagen-container img:hover {
+    transform: scale(1.05);
+    filter: brightness(0.3);
+    border: 2px solid white;
+    border-radius: 20px;
+    
+  }
+  
+  .imagen-texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+  
+  .imagen-container:hover .imagen-texto {
+    opacity: 1;
+    
+  }
+  
+  

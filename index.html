@@ -26,14 +26,14 @@
                 alt="WhatsApp"
               />
             </a>
-            <a href="/index.html">
+            <a href="index.html">
               <img
                 class="home-icon"
                 src="home_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png"
                 alt="Home"
               />
             </a>
-            <a href="/servicios.html">
+            <a href="servicio.html">
               <div class="spa-icon-container">
                 <img
                   class="spa-icon"
@@ -61,21 +61,6 @@
         <button id="btnSolicitar" class="btn btn-success btn-lg mt-4">
           Solicitar un turno
         </button>
-      </div>
-
-      <div class="imagenesContainer">
-        <div class="imagen-container">
-          <img src="imagenes/spa1.jpg" alt="Spa Image 1">
-          <div class="imagen-texto">Masajes Relajantes</div>
-        </div>
-        <div class="imagen-container">
-          <img src="imagenes/spa2.jpg" alt="Spa Image 2">
-          <div class="imagen-texto">Tratamientos Faciales</div>
-        </div>
-        <div class="imagen-container">
-          <img src="imagenes/ndo.jpg" alt="Spa Image 3">
-          <div class="imagen-texto">Terapias Holísticas</div>
-        </div>
       </div>
 
       <!-- Formulario flotante -->
@@ -112,34 +97,20 @@
             <select class="form-select" id="servicio" required>
               <option value="">Selecciona un servicio</option>
               <option value="Masaje Anti-Estres">Masaje Anti-Estres</option>
-              <option value="Masaje Descontracturante">
-                Masaje Descontracturante
-              </option>
-              <option value="Masaje con piedras calientes">
-                Masaje con piedras calientes
-              </option>
+              <option value="Masaje Descontracturante">Masaje Descontracturante</option>
+              <option value="Masaje con piedras calientes">Masaje con piedras calientes</option>
               <option value="Masaje Circulatorio">Masaje Circulatorio</option>
-
-              <option value="Masaje Circulatorio">Lifting de pestañas</option>
-              <option value="Masaje Circulatorio">Depilacion facial</option>
-              <option value="Masaje Circulatorio">
-                Belleza de manos y pies
-              </option>
-
-              <option value="Masaje Circulatorio">Punta de Diamante</option>
-              <option value="Masaje Circulatorio">
-                Limpieza Profunda + Hidratacion
-              </option>
-              <option value="Masaje Circulatorio">
-                Crio frecuencia facial
-              </option>
-
-              <option value="Masaje Circulatorio">VelaSlim</option>
-              <option value="Masaje Circulatorio">Dermohealth</option>
-              <option value="Masaje Circulatorio">Criofrecuencia</option>
-
-              <option value="Masaje Circulatorio">Hidromasaje</option>
-              <option value="Masaje Circulatorio">Yoga</option>
+              <option value="Lifting de pestañas">Lifting de pestañas</option>
+              <option value="Depilacion facial">Depilación facial</option>
+              <option value="Belleza de manos y pies">Belleza de manos y pies</option>
+              <option value="Punta de Diamante">Punta de Diamante</option>
+              <option value="Limpieza Profunda + Hidratacion">Limpieza Profunda + Hidratación</option>
+              <option value="Crio frecuencia facial">Crio frecuencia facial</option>
+              <option value="VelaSlim">VelaSlim</option>
+              <option value="Dermohealth">Dermohealth</option>
+              <option value="Criofrecuencia">Criofrecuencia</option>
+              <option value="Hidromasaje">Hidromasaje</option>
+              <option value="Yoga">Yoga</option>
             </select>
           </div>
           <div class="d-flex justify-content-between">
@@ -153,6 +124,27 @@
         </form>
       </div>
     </div>
+
+    <!-- JS para cálculo automático de Hora Fin -->
+    <script>
+      document.getElementById('horaInicio').addEventListener('change', () => {
+        const horaInicio = document.getElementById('horaInicio').value;
+        const horaFinInput = document.getElementById('horaFin');
+
+        if (horaInicio) {
+          const [horas, minutos] = horaInicio.split(':').map(Number);
+          const nuevaHora = new Date();
+          nuevaHora.setHours(horas);
+          nuevaHora.setMinutes(minutos + 60); // Duración del turno: 60 minutos
+
+          const horasFin = nuevaHora.getHours().toString().padStart(2, '0');
+          const minutosFin = nuevaHora.getMinutes().toString().padStart(2, '0');
+          horaFinInput.value = `${horasFin}:${minutosFin}`;
+        } else {
+          horaFinInput.value = '';
+        }
+      });
+    </script>
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
