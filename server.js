@@ -11,15 +11,15 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'Diariosecreto1', //modificar
-    database: 'TurnosDB', 
+    database: 'newschema', 
     port: 3306
 });
 
-const pool = mysql.createConnection({
+const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'Diariosecreto1',
-    database: 'TurnosDB',
+    database: 'newschema',
     port: 3306,
     waitForConnections: true,
     connectionLimit: 10,
